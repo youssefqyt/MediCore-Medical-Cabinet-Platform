@@ -3,6 +3,7 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const http = require("http");
+const path = require("path");
 const jwt = require("jsonwebtoken");
 const { Server } = require("socket.io");
 
@@ -61,16 +62,6 @@ app.use("/api/notifications", notificationRoutes);
 app.use("/api/devices", deviceRoutes);
 
 // Serve Mobile Web Application Static Distribution
-const path = require("path");
-const mobileDistPath = path.join(__dirname, "../mobile/dist");
-app.use(express.static(mobileDistPath));
-app.get("*", (req, res, next) => {
-  if (req.path.startsWith("/api/")) return next();
-  res.sendFile(path.join(mobileDistPath, "index.html"));
-});
-
-// Serve Mobile Web Application Static Distribution
-const path = require("path");
 const mobileDistPath = path.join(__dirname, "../mobile/dist");
 app.use(express.static(mobileDistPath));
 app.use((req, res, next) => {
