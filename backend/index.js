@@ -64,6 +64,15 @@ app.use("/api/devices", deviceRoutes);
 const path = require("path");
 const mobileDistPath = path.join(__dirname, "../mobile/dist");
 app.use(express.static(mobileDistPath));
+app.get("*", (req, res, next) => {
+  if (req.path.startsWith("/api/")) return next();
+  res.sendFile(path.join(mobileDistPath, "index.html"));
+});
+
+// Serve Mobile Web Application Static Distribution
+const path = require("path");
+const mobileDistPath = path.join(__dirname, "../mobile/dist");
+app.use(express.static(mobileDistPath));
 app.use((req, res, next) => {
   if (req.method === "GET" && !req.path.startsWith("/api/")) {
     return res.sendFile(path.join(mobileDistPath, "index.html"));
@@ -114,8 +123,14 @@ io.on("connection", (socket) => {
 
 async function start() {
   await seedInitialData();
-  server.listen(PORT, "0.0.0.0", () => {
-    console.log(`MediCore Server running on http://0.0.0.0:${PORT}`);
+  const HOST = process.env.HOST || "0.0.0.0";
+  server.listen(PORT, HOST, () => {
+    console.log(`\n======================================================`);
+    console.log(`  MediCore Platform Running Successfully!`);
+    console.log(`  Local Access:      http://localhost:${PORT}`);
+    console.log(`  Network Access:    http://${HOST}:${PORT}`);
+    console.log(`  API Health Status: http://localhost:${PORT}/api/health`);
+    console.log(`======================================================\n`);
   });
 }
 
