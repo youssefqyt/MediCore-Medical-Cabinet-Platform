@@ -60,6 +60,17 @@ app.use("/api/patient-portal", patientPortalRoutes);
 app.use("/api/notifications", notificationRoutes);
 app.use("/api/devices", deviceRoutes);
 
+// Serve Mobile Web Application Static Distribution
+const path = require("path");
+const mobileDistPath = path.join(__dirname, "../mobile/dist");
+app.use(express.static(mobileDistPath));
+app.use((req, res, next) => {
+  if (req.method === "GET" && !req.path.startsWith("/api/")) {
+    return res.sendFile(path.join(mobileDistPath, "index.html"));
+  }
+  next();
+});
+
 // Global Error Handler
 app.use(errorMiddleware);
 

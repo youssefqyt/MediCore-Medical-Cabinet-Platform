@@ -269,6 +269,22 @@
       "reason": "Quarterly follow-up",
       "priority": "Normal",
       "created_at": "2026-11-15T15:55:35.084Z"
+    },
+    {
+      "id": 7,
+      "appointmentNumber": "APT-2026-007",
+      "patientId": "PAT-001",
+      "patientName": "Karim Mansour",
+      "doctorId": 1,
+      "doctorName": "Dr. Selim Ammar",
+      "date": "2026-12-01",
+      "time": "09:00",
+      "durationMinutes": 30,
+      "type": "Consultation",
+      "status": "Confirmed",
+      "reason": "Quarterly follow-up",
+      "priority": "Normal",
+      "created_at": "2026-11-15T16:38:35.931Z"
     }
   ],
   "consultations": [
@@ -644,6 +660,19 @@
       },
       "is_read": false,
       "created_at": "2026-11-15T15:55:35.084Z"
+    },
+    {
+      "id": 6,
+      "userId": 1,
+      "title": "New Appointment Booked",
+      "message": "Karim Mansour booked a Consultation for 2026-12-01 at 09:00.",
+      "type": "APPOINTMENT_CONFIRMATION",
+      "data": {
+        "appointmentId": 7,
+        "appointmentNumber": "APT-2026-007"
+      },
+      "is_read": false,
+      "created_at": "2026-11-15T16:38:35.931Z"
     }
   ],
   "audit_logs": [
@@ -774,6 +803,42 @@
       "details": {},
       "ip": "127.0.0.1",
       "timestamp": "2026-11-15T15:55:35.093Z"
+    },
+    {
+      "id": 12,
+      "userId": 1,
+      "userName": "Dr. Selim Ammar",
+      "role": "DOCTOR",
+      "action": "PATIENTS_LIST_VIEW",
+      "resource": "/api/patients",
+      "method": "GET",
+      "details": {},
+      "ip": "127.0.0.1",
+      "timestamp": "2026-11-15T16:38:35.923Z"
+    },
+    {
+      "id": 13,
+      "userId": 2,
+      "userName": "Amina Trabelsi",
+      "role": "RECEPTIONIST",
+      "action": "APPOINTMENT_CREATE",
+      "resource": "/api/appointments",
+      "method": "POST",
+      "details": {},
+      "ip": "127.0.0.1",
+      "timestamp": "2026-11-15T16:38:35.932Z"
+    },
+    {
+      "id": 14,
+      "userId": 1,
+      "userName": "Dr. Selim Ammar",
+      "role": "DOCTOR",
+      "action": "AI_ASSISTANT_QUERY",
+      "resource": "/api/ai/ask",
+      "method": "POST",
+      "details": {},
+      "ip": "127.0.0.1",
+      "timestamp": "2026-11-15T16:38:35.945Z"
     }
   ],
   "ai_runs": [
@@ -796,6 +861,15 @@
       "toolUsed": "checkLowInventory",
       "toolParams": {},
       "timestamp": "2026-11-15T15:55:35.092Z"
+    },
+    {
+      "id": 3,
+      "userId": 1,
+      "userRole": "DOCTOR",
+      "prompt": "Show low inventory supplies",
+      "toolUsed": "checkLowInventory",
+      "toolParams": {},
+      "timestamp": "2026-11-15T16:38:35.944Z"
     }
   ],
   "ai_tool_calls": [],
