@@ -1,0 +1,67 @@
+export const categories = ["All", "New in", "Living", "Wear", "Objects"];
+
+const photos = {
+  living: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=900&q=80",
+  wear: "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=80",
+  objects: "https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&w=900&q=80",
+};
+
+const product = (id, name, category, price, description, image, sizes = ["One size"], featured = false) => ({ id, name, category, price, description, sizes, stock: 8 + (id % 17), featured, image, color: "#B98968", accent: "#F4DED1" });
+
+export const initialProducts = [
+  { id: "p1", name: "Solenne lamp", category: "Living", price: 148, color: "#D98955", accent: "#FFE0D3", description: "A small-batch table lamp with a warm, soft glow.", sizes: ["One size"], stock: 8, featured: true, image: require("../../assets/products/solenne-lamp.png") },
+  { id: "p2", name: "Moss knit", category: "Wear", price: 96, color: "#688263", accent: "#DBE7D6", description: "Relaxed merino knit for slow, well-dressed days.", sizes: ["XS", "S", "M", "L"], stock: 14, image: require("../../assets/products/moss-knit.png") },
+  { id: "p3", name: "No. 04 vase", category: "Objects", price: 72, color: "#B9A3D5", accent: "#EEE6FA", description: "Hand-finished ceramic with an imperfect silhouette.", sizes: ["One size"], stock: 3, image: require("../../assets/products/no-04-vase.png") },
+  { id: "p4", name: "Field tote", category: "Wear", price: 54, color: "#D5A738", accent: "#FFF0C3", description: "A durable everyday carry in washed canvas.", sizes: ["One size"], stock: 21, image: require("../../assets/products/field-tote.png") },
+  { id: "p5", name: "Cedar candle", category: "Living", price: 38, color: "#A96A4C", accent: "#F4D8C8", description: "Smoked cedar and cardamom, poured by hand.", sizes: ["180 g", "300 g"], stock: 0, image: require("../../assets/products/cedar-candle.png") },
+  { id: "p6", name: "Pebble tray", category: "Objects", price: 44, color: "#8A9490", accent: "#E1E8E4", description: "A quiet landing place for the things you reach for.", sizes: ["Small", "Large"], stock: 9, image: require("../../assets/products/pebble-tray.png") },
+  product(7, "Linen overshirt", "Wear", 118, "A softly structured layer in breathable washed linen.", photos.wear, ["S", "M", "L"], true),
+  product(8, "Clay incense holder", "Objects", 28, "A hand-shaped holder for slow-burning incense.", photos.objects),
+  product(9, "Sora floor lamp", "Living", 210, "A sculptural floor lamp with a linen shade.", photos.living, ["One size"], true),
+  product(10, "Canvas weekend bag", "Wear", 128, "A roomy canvas carryall for short escapes.", photos.wear),
+  product(11, "Ripple glass set", "Objects", 46, "Handblown tumblers with a gentle ripple texture.", photos.objects),
+  product(12, "Olive throw blanket", "Living", 88, "A generous cotton throw for cool evenings.", photos.living),
+  product(13, "Ribbed cotton tee", "Wear", 42, "An everyday tee with a refined ribbed finish.", photos.wear),
+  product(14, "Arc ceramic bowl", "Objects", 36, "A low ceramic bowl for keys, fruit, or flowers.", photos.objects),
+  product(15, "Dune bedside table", "Living", 260, "A compact oak table with softened edges.", photos.living),
+  product(16, "Satin slip skirt", "Wear", 104, "A fluid midi skirt made for day-to-night dressing.", photos.wear),
+  product(17, "Stoneware carafe", "Objects", 64, "A tactile carafe for the dinner table.", photos.objects),
+  product(18, "Amber room spray", "Living", 32, "Warm amber and fig for a calm room.", photos.living),
+  product(19, "Merino cardigan", "Wear", 132, "A fine merino cardigan with a relaxed drape.", photos.wear, ["XS", "S", "M", "L"]),
+  product(20, "Brass taper holder", "Objects", 24, "A simple brass holder with a steady footprint.", photos.objects),
+  product(21, "Cloud cushion", "Living", 58, "A plump linen cushion in a quiet neutral.", photos.living),
+  product(22, "Utility chore jacket", "Wear", 156, "A durable cotton jacket with useful pockets.", photos.wear, ["S", "M", "L"], true),
+  product(23, "Woven wall basket", "Objects", 52, "A woven basket for light storage and texture.", photos.objects),
+  product(24, "Lumen table clock", "Living", 74, "A clean-faced clock for a considered desk.", photos.living),
+  product(25, "Soft wool scarf", "Wear", 68, "A lightweight wool scarf with a generous length.", photos.wear),
+  product(26, "Ink ceramic mug", "Objects", 22, "A comfortable mug with a hand-dipped glaze.", photos.objects),
+  product(27, "Linen duvet cover", "Living", 145, "Washed linen bedding that gets better with time.", photos.living),
+  product(28, "Pleated wide trousers", "Wear", 112, "High-waisted trousers with an easy wide leg.", photos.wear, ["XS", "S", "M", "L"]),
+  product(29, "Grove serving board", "Objects", 48, "Solid wood serving board with a natural grain.", photos.objects),
+  product(30, "Opal pendant light", "Living", 188, "A soft opal pendant for an inviting glow.", photos.living, ["One size"], true),
+  product(31, "Cotton poplin shirt", "Wear", 86, "A crisp shirt with an easy, generous cut.", photos.wear),
+  product(32, "Folded steel bookend", "Objects", 34, "Minimal steel bookends for a tidy shelf.", photos.objects),
+  product(33, "Sandalwood candle", "Living", 42, "Sandalwood, smoke, and a hint of iris.", photos.living),
+  product(34, "Textured knit polo", "Wear", 108, "A softly textured knit polo for transitional days.", photos.wear, ["S", "M", "L"]),
+  product(35, "Pebble soap dish", "Objects", 18, "A small stoneware dish for daily rituals.", photos.objects),
+  product(36, "Rattan lounge chair", "Living", 320, "A relaxed woven chair for a sunny corner.", photos.living),
+  product(37, "Leather belt bag", "Wear", 92, "A compact leather bag for hands-free days.", photos.wear),
+  product(38, "Tall bud vase", "Objects", 39, "A slender vase for a single stem or branch.", photos.objects),
+  product(39, "Linen table runner", "Living", 36, "A softly rumpled runner for everyday meals.", photos.living),
+  product(40, "Relaxed denim jean", "Wear", 124, "A straight-leg jean with a comfortable rise.", photos.wear, ["28", "30", "32", "34"]),
+  product(41, "Ash catchall", "Objects", 26, "A small ash wood tray for pocket essentials.", photos.objects),
+  product(42, "Faded terracotta pot", "Living", 44, "A warm terracotta pot for trailing greenery.", photos.living),
+  product(43, "Fine rib tank", "Wear", 36, "A close-fitting rib tank for layering.", photos.wear, ["XS", "S", "M", "L"]),
+  product(44, "Linen photo frame", "Objects", 31, "A tactile frame for a favorite photograph.", photos.objects),
+  product(45, "Cove reading light", "Living", 126, "A directional reading light with a quiet profile.", photos.living),
+  product(46, "Brushed cotton hoodie", "Wear", 98, "A soft brushed hoodie with a neat silhouette.", photos.wear),
+  product(47, "Hand-thrown pitcher", "Objects", 57, "A generous pitcher with an organic handle.", photos.objects),
+  product(48, "Wool blend rug", "Living", 240, "A low-pile rug with a calm geometric weave.", photos.living),
+  product(49, "Silk neck scarf", "Wear", 62, "A small silk scarf with an understated print.", photos.wear),
+  product(50, "Carved oak hook", "Objects", 16, "A useful wall hook with a warm oak grain.", photos.objects),
+];
+
+export const initialOrders = [
+  { id: "VL-10482", date: "14 September 2026", status: "On its way", total: 192, items: 2 },
+  { id: "VL-10391", date: "28 August 2026", status: "Delivered", total: 72, items: 1 },
+];

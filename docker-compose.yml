@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  medicore-backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: medicore_backend
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    environment:
+      - PORT=5000
+      - JWT_SECRET=medicore-production-secure-key-2026
+      - USE_FILE_DB=true
+    volumes:
+      - medicore_data:/app/data
+
+volumes:
+  medicore_data:

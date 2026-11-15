@@ -1,0 +1,15 @@
+const express = require("express");
+const controller = require("../controllers/notificationController");
+const auth = require("../middleware/authMiddleware");
+const asyncHandler = require("../middleware/asyncHandler");
+const validation = require("../middleware/notificationValidation");
+const router = express.Router();
+router.use(auth);
+router.get("/", asyncHandler(controller.getNotifications));
+router.get("/unread-count", asyncHandler(controller.getUnreadCount));
+router.patch("/read-all", asyncHandler(controller.markAllAsRead));
+router.post("/", validation.createNotificationValidation, asyncHandler(controller.createNotification));
+router.patch("/:id", validation.updateNotificationValidation, asyncHandler(controller.updateNotification));
+router.patch("/:id/read-state", validation.readStateValidation, asyncHandler(controller.setReadState));
+router.delete("/:id", asyncHandler(controller.deleteNotification));
+module.exports = router;

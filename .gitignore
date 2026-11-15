@@ -1,0 +1,45 @@
+# Node dependencies
+node_modules/
+*/node_modules/
+
+# Environment files
+.env
+*/.env
+!.env.example
+!*/.env.example
+
+# Expo & Metro
+.expo/
+*/.expo/
+.expo-check/
+.expo-validation*/
+.expo-runtime-validation/
+.expo-error-ui-validation/
+.expo-catalog-validation/
+*/.expo-*/
+web-build/
+expo-env.d.ts
+.metro-health-check*
+
+# Logs & Debug
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+
+# OS files
+.DS_Store
+Thumbs.db
+*.pem
+
+# Editor folders
+.vscode/
+.idea/
+.claude/
+.kilo/
+.zencoder/
+
+# Native folders
+/ios
+/android
+*/ios
+*/android
